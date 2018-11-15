@@ -36,7 +36,6 @@ namespace DataBindingDemo
             }
             DataContext = student;
 
-
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

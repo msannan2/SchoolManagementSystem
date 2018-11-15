@@ -12,20 +12,27 @@
             <Label Content="" Background="LightSteelBlue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="616" Height="41"/>
             <Label Content="Student Details" Background="Transparent" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Height="38" Width="160" FontSize="20" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
         </Grid>
-        <Label Content="First Name " HorizontalAlignment="Left" Margin="6,47,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="First Name " HorizontalAlignment="Left" Margin="6,49,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Last Name " HorizontalAlignment="Left" Margin="6,85,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Parent Name "  HorizontalAlignment="Left" Margin="6,157,0,0" VerticalAlignment="Top" Height="38" Width="98" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Parent First Name "  HorizontalAlignment="Left" Margin="6,157,0,0" VerticalAlignment="Top" Height="38" Width="130" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Student ID" HorizontalAlignment="Left" Margin="6,119,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Parent ID" HorizontalAlignment="Left" Margin="6,194,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="6,229,0,0" VerticalAlignment="Top" Height="38" Width="98" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Admission Date" HorizontalAlignment="Left" Margin="6,267,0,0" VerticalAlignment="Top" Height="38" Width="115" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Contact 1" HorizontalAlignment="Left" Margin="6,305,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Contact 2" HorizontalAlignment="Left" Margin="6,343,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Parent ID" HorizontalAlignment="Left" Margin="6,239,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="6,274,0,0" VerticalAlignment="Top" Height="38" Width="98" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Admission Date" HorizontalAlignment="Left" Margin="6,312,0,0" VerticalAlignment="Top" Height="38" Width="115" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Contact 1" HorizontalAlignment="Left" Margin="6,350,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Contact 2" HorizontalAlignment="Left" Margin="6,388,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Section" HorizontalAlignment="Left" Margin="6,460,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Class" HorizontalAlignment="Left" Margin="6,422,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Monthly Fee" HorizontalAlignment="Left" Margin="324,343,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Discount" HorizontalAlignment="Left" Margin="324,386,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Parent Last Name "  HorizontalAlignment="Left" Margin="6,196,0,0" VerticalAlignment="Top" Height="38" Width="130" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Image Name="profileImage" HorizontalAlignment="Left" Height="138" Margin="384,57,0,0" VerticalAlignment="Top" Width="135" />
-        <syncfusion:MaskedTextBox 
-                                Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
+
+
+
+        <syncfusion:MaskedTextBox Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,91,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="148" Text="{Binding LastName}"/>
-        <TextBox x:Name="parentname" HorizontalAlignment="Left" Height="23" Margin="121,163,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" >
+        <TextBox x:Name="parentname" HorizontalAlignment="Left" Height="23" Margin="141,163,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" >
             <MultiBinding StringFormat="{}{0} {1}">
                 <Binding Path="FirstName" />
                 <Binding Path="LastName" />
@@ -34,22 +41,24 @@
         <syncfusion:MaskedTextBox ReadOnly="True" 
                                 Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False"  HorizontalAlignment="Left" Height="23" Margin="121,125,0,0" TextWrapping="NoWrap" Text="{Binding StudentID}" VerticalAlignment="Top" Width="98" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,200,0,0" TextWrapping="NoWrap" Text="{Binding ParentID}" VerticalAlignment="Top" Width="98"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,235,0,0" TextWrapping="NoWrap" Text="{Binding DateOfBirth}" VerticalAlignment="Top" Width="133"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,273,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,311,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,349,0,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,245,0,0" TextWrapping="NoWrap" Text="{Binding ParentID}" VerticalAlignment="Top" Width="98"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,280,0,0" TextWrapping="NoWrap" Text="{Binding DateOfBirth}" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,318,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,356,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,394,0,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" Width="133"/>
         <syncfusion:MaskedTextBox 
                                 Value="{Binding FirstName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,53,0,0" TextWrapping="NoWrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="148"/>
-        <Label Content="Section" HorizontalAlignment="Left" Margin="6,415,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,421,0,0" TextWrapping="NoWrap" Text="{Binding Section}" VerticalAlignment="Top" Width="65"/>
-        <Label Content="Class" HorizontalAlignment="Left" Margin="6,377,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <TextBox  Text="{Binding ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,383,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Monthly Fee" HorizontalAlignment="Left" Margin="324,343,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,466,0,0" TextWrapping="NoWrap" Text="{Binding Section}" VerticalAlignment="Top" Width="65"/>
+        <TextBox  Text="{Binding ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,428,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="425,349,0,0" TextWrapping="NoWrap" Text="{Binding MonthlyFee}" VerticalAlignment="Top" Width="94"/>
-        <Label Content="Discount" HorizontalAlignment="Left" Margin="324,386,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left"  Height="23" Margin="425,392,0,0" TextWrapping="NoWrap" Text="{Binding Discount}" VerticalAlignment="Top" Width="94"/>
+        <TextBox x:Name="parentname_Copy" HorizontalAlignment="Left" Height="23" Margin="141,204,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" >
+            <MultiBinding StringFormat="{}{0} {1}">
+                <Binding Path="FirstName" />
+                <Binding Path="LastName" />
+            </MultiBinding>
+        </TextBox>
 
     </Grid>
 </Window>
