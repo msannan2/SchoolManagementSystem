@@ -25,9 +25,9 @@ namespace DataBindingDemo
     /// <summary>
     /// Interaction logic for NewsView.xaml
     /// </summary>
-    public partial class NewsView : UserControl
+    public partial class AdmissionView : UserControl
     {
-        public NewsView()
+        public AdmissionView()
         {
             InitializeComponent();
         }

@@ -30,9 +30,9 @@ using System.Data.SQLite;
 namespace DataBindingDemo
 {
     /// <summary>
-    /// Interaction logic for TwitterView.xaml
+    /// Interaction logic for StudentDetailView.xaml
     /// </summary>
-    public partial class TwitterView : UserControl
+    public partial class StudentDetailView : UserControl
     {
         
         public List<string> Tags;
@@ -44,7 +44,7 @@ namespace DataBindingDemo
             
         }
 
-        public TwitterView()
+        public StudentDetailView()
         {
             InitializeComponent();
             Tags = new List<string> { "FirstName", "LastName", "Gender" };
