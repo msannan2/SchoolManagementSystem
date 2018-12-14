@@ -20,21 +20,14 @@ namespace DataBindingDemo
     public partial class ProfileView : Window
     {
 
-        public Student temp;
+        
         public Student student;
         public ProfileView(Student p)
         {
-            temp = p;
+        
             InitializeComponent();
-            
-            
-            using (var context = new mainEntities())
-            {
-                student = context.Students
-                                   .Where(s => s.StudentID == temp.StudentID)
-                                   .FirstOrDefault<Student>();
-            }
-            DataContext = student;
+            student = p;
+            DataContext =student;
 
         }
 
@@ -44,6 +37,11 @@ namespace DataBindingDemo
         }
 
         private void TextBox_TextChanged_1()
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
 
         }

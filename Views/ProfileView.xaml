@@ -32,12 +32,7 @@
 
         <syncfusion:MaskedTextBox Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,91,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="148" Text="{Binding LastName}"/>
-        <TextBox x:Name="parentname" HorizontalAlignment="Left" Height="23" Margin="141,163,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" >
-            <MultiBinding StringFormat="{}{0} {1}">
-                <Binding Path="FirstName" />
-                <Binding Path="LastName" />
-            </MultiBinding>
-        </TextBox>
+        <TextBox x:Name="parentname" HorizontalAlignment="Left" Height="23" Margin="141,163,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" Text="{Binding Parent.FirstName}"/>
         <syncfusion:MaskedTextBox ReadOnly="True" 
                                 Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False"  HorizontalAlignment="Left" Height="23" Margin="121,125,0,0" TextWrapping="NoWrap" Text="{Binding StudentID}" VerticalAlignment="Top" Width="98" />
@@ -46,19 +41,14 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="121,318,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="121,356,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="121,394,0,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" Width="133"/>
-        <syncfusion:MaskedTextBox 
-                                Value="{Binding FirstName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
+        <syncfusion:MaskedTextBox ReadOnly="True" Value="{Binding FirstName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,53,0,0" TextWrapping="NoWrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="148"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,466,0,0" TextWrapping="NoWrap" Text="{Binding Section}" VerticalAlignment="Top" Width="65"/>
-        <TextBox  Text="{Binding ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,428,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,466,0,0" TextWrapping="NoWrap" Text="{Binding Class.Section}" VerticalAlignment="Top" Width="65"/>
+        <TextBox  Text="{Binding Class.ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,428,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="425,349,0,0" TextWrapping="NoWrap" Text="{Binding MonthlyFee}" VerticalAlignment="Top" Width="94"/>
         <TextBox HorizontalAlignment="Left"  Height="23" Margin="425,392,0,0" TextWrapping="NoWrap" Text="{Binding Discount}" VerticalAlignment="Top" Width="94"/>
-        <TextBox x:Name="parentname_Copy" HorizontalAlignment="Left" Height="23" Margin="141,204,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" >
-            <MultiBinding StringFormat="{}{0} {1}">
-                <Binding Path="FirstName" />
-                <Binding Path="LastName" />
-            </MultiBinding>
-        </TextBox>
-
+        <TextBox x:Name="parentlastname" HorizontalAlignment="Left" Height="23" Margin="141,204,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" 
+                 Text="{Binding Parent.LastName}" />
+        <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Edit" Margin="434,466,37,21" FontSize="16"/>
     </Grid>
 </Window>
