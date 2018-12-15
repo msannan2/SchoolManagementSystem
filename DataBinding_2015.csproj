@@ -236,6 +236,9 @@
     </Compile>
     <Compile Include="ViewModel\NewUserViewModel.cs" />
     <Compile Include="ViewModel\StudentModel.cs" />
+    <Compile Include="Views\EditStudentDetialsView.xaml.cs">
+      <DependentUpon>EditStudentDetialsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BrowserView.xaml.cs">
       <DependentUpon>BrowserView.xaml</DependentUpon>
     </Compile>
@@ -274,6 +277,10 @@
     <Compile Include="Views\WeatherView.xaml.cs">
       <DependentUpon>WeatherView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\EditStudentDetialsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\BrowserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
