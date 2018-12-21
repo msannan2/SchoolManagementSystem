@@ -14,7 +14,7 @@
         </Grid>
         <Label Content="First Name " HorizontalAlignment="Left" Margin="6,49,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Last Name " HorizontalAlignment="Left" Margin="268,49,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Parent/Spouse First Name "  HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Height="38" Width="248" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Parent/Spouse"  HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Height="38" Width="248" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Employee ID" HorizontalAlignment="Left" Margin="6,92,0,0" VerticalAlignment="Top" Height="38" Width="104" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Salary Count" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="38" Width="248" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="268,206,0,0" VerticalAlignment="Top" Height="38" Width="98" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
@@ -23,7 +23,6 @@
         <Label Content="Contact 2" HorizontalAlignment="Left" Margin="10,314,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Gender" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Home Address" HorizontalAlignment="Left" Margin="10,391,0,0" VerticalAlignment="Top" Height="38" Width="112" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Parent/Spouse Last Name "  HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Height="38" Width="248" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Image Name="profileImage" HorizontalAlignment="Left" Height="138" Margin="384,57,0,0" VerticalAlignment="Top" Width="135" />
 
 
@@ -31,32 +30,29 @@
         <syncfusion:MaskedTextBox Value="{Binding Employee.LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="358,57,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="179" Text="{Binding LastName}"/>
         
-        <TextBox x:Name="parentname" HorizontalAlignment="Left" Height="23" Margin="254,130,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="283" Text="{Binding Parent.FirstName}"/>
+        <TextBox x:Name="parentname" HorizontalAlignment="Left" Height="23" Margin="254,130,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="283" Text="{Binding Employee.FatherName}"/>
         
         <syncfusion:MaskedTextBox ReadOnly="True" 
-                                Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
+                                Value="{Binding Employee.EmployeeID ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False"  HorizontalAlignment="Left" Height="23" Margin="110,92,0,0" TextWrapping="NoWrap" Text="{Binding StudentID}" VerticalAlignment="Top" Width="177" />
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,206,0,0" TextWrapping="NoWrap" Text="{Binding ParentID}" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,206,0,0" TextWrapping="NoWrap" Text="{Binding Employee.Salary}" VerticalAlignment="Top" Width="133"/>
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="366,206,0,0" TextWrapping="NoWrap" Text="{Binding DateOfBirth}" VerticalAlignment="Top" Width="171"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="366,206,0,0" TextWrapping="NoWrap" Text="{Binding Employee.DOB}" VerticalAlignment="Top" Width="171"/>
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,243,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,243,0,0" TextWrapping="NoWrap" Text="{Binding Employee.Joining_date}" VerticalAlignment="Top" Width="133"/>
        
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,276,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,276,0,0" TextWrapping="NoWrap" Text="{Binding Employee.ContactNo1}" VerticalAlignment="Top" Width="133"/>
         
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,320,0,0" TextWrapping="NoWrap" Text="TextBox" VerticalAlignment="Top" Width="133"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,320,0,0" TextWrapping="NoWrap" Text="{Binding Employee.ContactNo2}" VerticalAlignment="Top" Width="133"/>
         
         <syncfusion:MaskedTextBox ReadOnly="True" Value="{Binding Employeee.FirstName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="91,57,0,0" TextWrapping="NoWrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="163" TextChanged="MaskedTextBox_TextChanged"/>
-        
-        <TextBox x:Name="parentlastname" HorizontalAlignment="Left" Height="23" Margin="254,172,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="283" 
-                 Text="{Binding Parent.LastName}" />
-        
+
         <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Edit" Margin="434,466,37,21" FontSize="16"/>
         
-        <TextBox x:Name="parentname_Copy" HorizontalAlignment="Left" Height="38" Margin="121,391,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="283" Text="{Binding Parent.FirstName}"/>
+        <TextBox x:Name="parentname_Copy" HorizontalAlignment="Left" Height="38" Margin="121,391,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="283" Text="{Binding Employee.Address}"/>
         
-        <TextBox  Text="{Binding Class.ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,352,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
+        <TextBox  Text="{Binding Employee.Gender}" HorizontalAlignment="Left" Height="23" Margin="121,352,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </Window>

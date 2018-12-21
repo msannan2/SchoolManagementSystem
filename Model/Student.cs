@@ -21,28 +21,6 @@ namespace DataBindingDemo
 {
     public partial class Student : NotificationObject, IDataErrorInfo
     {
-        public Student DeepCopy()
-        {
-            Student temp = new Student();
-            temp.AdmissionDate = AdmissionDate;
-            temp.AdmissionFee = AdmissionFee;
-            temp.Class = Class;
-            temp.ClassID = ClassID;
-            temp.ClassSessions = ClassSessions;
-            temp.DateOfBirth = DateOfBirth;
-            temp.DiscountPercentage = DiscountPercentage;
-            temp.FeeDetails = FeeDetails;
-            temp.FirstName = FirstName;
-            temp.LastName = LastName;
-            temp.isActive = isActive;
-            temp.MonthlyFee = MonthlyFee;
-            temp.OtherCharges = OtherCharges;
-            temp.Parent = Parent;
-            temp.ParentID = ParentID;
-            temp.StudentAttendances = StudentAttendances;
-            temp.StudentID = temp.StudentID;
-            return temp;
-        }
 
         #region RegisterCommandValidation
         public bool ValidateParentID()
@@ -145,19 +123,6 @@ namespace DataBindingDemo
                 this.RaisePropertyChanged(() => this.FirstName);
             }
         }
-        private long afterdiscountedFee = 0;
-        public long AfterdiscountedFee
-        {
-            get
-            {
-                return afterdiscountedFee;
-            }
-            set
-            {
-                afterdiscountedFee = value;
-                this.RaisePropertyChanged(() => this.MonthlyFee);
-            }
-        }
 
         private string lName = "Johnson";
         public string LastName
@@ -229,7 +194,7 @@ namespace DataBindingDemo
             }
         }
 
-        private long monthlyFee = 200;
+        private long monthlyFee = 2000;
         public long MonthlyFee
         {
             get
@@ -243,6 +208,61 @@ namespace DataBindingDemo
             }
         }
 
+        private long afterdiscountedFee = 0;
+        public long  AfterDiscountedFee
+        {
+            get
+            {
+                return afterdiscountedFee;
+            }
+            set
+            {
+                afterdiscountedFee = value;
+                this.RaisePropertyChanged(() => this.AfterDiscountedFee);
+            }
+        }
+
+        private long sibblings = 0;
+        public long Sibblings
+        {
+            get
+            {
+                return sibblings;
+            }
+            set
+            {
+                sibblings = value;
+                this.RaisePropertyChanged(() => this.Sibblings);
+            }
+        }
+
+        private string time = "";
+        public string Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                time = value;
+                this.RaisePropertyChanged(() => this.Time);
+            }
+        }
+
+        private string paidtime = "";
+        public string PaidTime
+        {
+            get
+            {
+                return paidtime;
+            }
+            set
+            {
+                paidtime = value;
+                this.RaisePropertyChanged(() => this.PaidTime);
+            }
+        }
         private long otherCharges = 0;
         public long OtherCharges
         {
@@ -257,7 +277,7 @@ namespace DataBindingDemo
             }
         }
 
-        private long disPercent = 0;
+        private long disPercent = 5;
         public long DiscountPercentage
         {
             get

@@ -12,6 +12,7 @@ namespace DataBindingDemo
         Recipients parent, employee, teacher;
         public NotificationViewModel()
         {
+            recipients = new List<Recipients>();
             parent = new RepParent();
             employee = new RepEmployee();
             teacher = new RepTeacher();

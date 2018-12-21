@@ -18,7 +18,7 @@ namespace DataBindingDemo
         public override void Operation(Student s)
         {
             
-            s.AfterdiscountedFee = s.MonthlyFee;
+            s.AfterDiscountedFee = s.MonthlyFee;
         }
                
     }
@@ -36,7 +36,7 @@ namespace DataBindingDemo
         public void AddOn(Student s)
         {
             float discountPer = 5;
-            float fee = s.AfterdiscountedFee;
+            float fee = s.AfterDiscountedFee;
             List<Student> temp = s.Parent.Students.ToList();
             int TotalChildern = temp.Count;
             for (int i = 0; i < TotalChildern-1; i++)
@@ -47,7 +47,7 @@ namespace DataBindingDemo
                 if (i == 5)
                     break;
             }
-            s.AfterdiscountedFee = (long)fee;
+            s.AfterDiscountedFee = (long)fee;
 
         }
     }
@@ -66,7 +66,7 @@ namespace DataBindingDemo
         {
             
             float discountPer = 5;
-            float fee = (float)s.AfterdiscountedFee;
+            float fee = (float)s.AfterDiscountedFee;
             Random random = new Random();
             int AttendencePercent = random.Next(70, 100);
             if (AttendencePercent > 85)
@@ -75,7 +75,7 @@ namespace DataBindingDemo
                 discount = fee * (discountPer / 100);
                 fee = fee-discount;
             }
-            s.AfterdiscountedFee = (long)fee;
+            s.AfterDiscountedFee = (long)fee;
 
 
         }
@@ -94,7 +94,7 @@ namespace DataBindingDemo
         public void AddOn(Student s)
         {
             float discountPer = 5;
-            float fee = (float)s.AfterdiscountedFee;
+            float fee = (float)s.AfterDiscountedFee;
             Random random = new Random();
             int AttendencePercent = random.Next(70, 100);
             if (AttendencePercent > 85)
@@ -103,7 +103,7 @@ namespace DataBindingDemo
                 discount = fee * (discountPer / 100);
                 fee = fee - discount;
             }
-            s.AfterdiscountedFee = (long)fee;
+            s.AfterDiscountedFee = (long)fee;
 
 
         }

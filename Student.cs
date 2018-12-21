@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataBindingD
+namespace DataBindingDemo
 {
     using System;
     using System.Collections.Generic;
@@ -22,20 +22,7 @@ namespace DataBindingD
             this.StudentAttendances = new HashSet<StudentAttendance>();
         }
     
-        public long StudentID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string DateOfBirth { get; set; }
-        public string AdmissionDate { get; set; }
-        public string Gender { get; set; }
-        public long AdmissionFee { get; set; }
-        public long MonthlyFee { get; set; }
-        public long OtherCharges { get; set; }
-        public long DiscountPercentage { get; set; }
-        public long ParentID { get; set; }
-        public long ClassID { get; set; }
-        public Nullable<bool> isActive { get; set; }
-    
+        
         public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassSession> ClassSessions { get; set; }

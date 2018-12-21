@@ -34,22 +34,56 @@ namespace DataBindingDemo
     /// </summary>
     public partial class StudentDetailView : UserControl
     {
-        
+
+
         public List<string> Tags;
         mainEntities entities = new mainEntities();
-        private void loadData()
+        private void LoadData()
         {
             datagrid1.DataContext = entities.Students;
             datagrid1.ItemsSource = entities.Students.ToList();
             
         }
 
+        public Student Addfine(Student s)
+        {
+            ConcreteFee f = new ConcreteFee();
+            Onfine d4 = new Onfine();
+            d4.SetComponent(f);
+            d4.Operation(s);
+            return s;
+        }
+
+
+        public Student GetDiscout(Student s)
+        {
+            ConcreteFee f = new ConcreteFee();
+            OnAttendenceDiscount d1 = new OnAttendenceDiscount();
+            ChildernDiscount d2 = new ChildernDiscount();
+            GetScholarship d3 = new GetScholarship();
+            Onfine d4 = new Onfine();
+            d1.SetComponent(f);
+            d1.Operation(s);
+            d2.SetComponent(d1);
+            d2.Operation(s);
+            d3.SetComponent(d2);
+            d3.Operation(s);
+            d4.SetComponent(d3);
+            d4.Operation(s);
+            
+            float Discount = (float)s.MonthlyFee-(float)s.AfterDiscountedFee;
+            float Discountpercent = (Discount / (float)s.MonthlyFee) * 100;
+            s.DiscountPercentage = (long)Discountpercent;
+                return s;
+
+        }
+
         public StudentDetailView()
         {
             InitializeComponent();
-            Tags = new List<string> { "FirstName", "LastName", "Gender" };
+            Tags = new List<string> { "FirstName", "LastName"};
             search.ItemsSource = Tags;
-            loadData();
+            LoadData();
             
         }
         private void Btn1_Click(object sender, RoutedEventArgs e)
@@ -74,7 +108,7 @@ namespace DataBindingDemo
         }
         private void BtnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            loadData();
+            LoadData();
             datagrid1.View.Refresh();
         }
         private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -98,10 +132,22 @@ namespace DataBindingDemo
             if (!recordentry.IsRecords)
                 return;
 
+
+
             //Underlying business data (In this case OrderInfo)
             var record = (recordentry as RecordEntry).Data;
-            var profile = new ProfileView((Student)record);
-            profile.Show();
+            Student s = GetDiscout((Student)record);
+            List<Student> temp = s.Parent.Students.ToList();
+            s.Sibblings = temp.Count; 
+            s.Time =DateTime.Now.ToString("dd/MM/yyy"); 
+            s.PaidTime = DateTime.Now.AddDays(10).ToString("dd/MM/yyy");
+            var voucher = new FeeVoucherView(s);
+            voucher.Show();
+
+            //var profile = new ProfileView(s);
+            //profile.Show();
+            
+
             //get particular cell value for clicked row
             //var value = record.GetType().GetProperty(datagrid1.Columns[colindex].MappingName).GetValue(record) ?? string.Empty;
 
