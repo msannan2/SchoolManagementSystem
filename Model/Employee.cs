@@ -19,44 +19,11 @@ using Syncfusion.XlsIO;
 
 namespace DataBindingDemo
 {
-    public partial class Student : NotificationObject, IDataErrorInfo
+    public partial class Employee : NotificationObject, IDataErrorInfo
     {
-        public Student DeepCopy()
-        {
-            Student temp = new Student();
-            temp.AdmissionDate = AdmissionDate;
-            temp.AdmissionFee = AdmissionFee;
-            temp.Class = Class;
-            temp.ClassID = ClassID;
-            temp.ClassSessions = ClassSessions;
-            temp.DateOfBirth = DateOfBirth;
-            temp.DiscountPercentage = DiscountPercentage;
-            temp.FeeDetails = FeeDetails;
-            temp.FirstName = FirstName;
-            temp.LastName = LastName;
-            temp.isActive = isActive;
-            temp.MonthlyFee = MonthlyFee;
-            temp.OtherCharges = OtherCharges;
-            temp.Parent = Parent;
-            temp.ParentID = ParentID;
-            temp.StudentAttendances = StudentAttendances;
-            temp.StudentID = temp.StudentID;
-            return temp;
-        }
 
         #region RegisterCommandValidation
-        public bool ValidateParentID()
-        {
-            if (string.IsNullOrEmpty(parentID.ToString()) || Convert.ToInt32(parentID.ToString()) <= 0)
-            {
-                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+
         public bool Validate()
         {
             if (string.IsNullOrEmpty(fName.ToString()))
@@ -64,75 +31,106 @@ namespace DataBindingDemo
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
+
             else if (string.IsNullOrEmpty(lName.ToString()))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
+
             else if (string.IsNullOrEmpty(dob.ToString()) || (DateTime.Parse(dob.ToString()) <= DateTime.Parse("1/1/0001") || DateTime.Parse(dob.ToString()) >= DateTime.Today))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
-            else if (string.IsNullOrEmpty(admDate.ToString()) || (DateTime.Parse(admDate.ToString()) <= DateTime.Parse("1/1/0001") || DateTime.Parse(admDate.ToString()) >= DateTime.Today))
+
+            else if (string.IsNullOrEmpty(cnic_info.ToString()))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
+
+            else if (string.IsNullOrEmpty(contact_no_1.ToString()))
+            {
+                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                return false;
+            }
+
+            else if (string.IsNullOrEmpty(contact_no_2.ToString()))
+            {
+                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                return false;
+            }
+
+            else if (string.IsNullOrEmpty(email_id.ToString()))
+            {
+                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                return false;
+            }
+
+            else if (string.IsNullOrEmpty(salary.ToString()) || Convert.ToInt32(salary.ToString()) < 0)
+            {
+                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                return false;
+            }
+
+            else if (string.IsNullOrEmpty(userID.ToString()) || Convert.ToInt32(userID.ToString()) < 0)
+            {
+                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
+                return false;
+            }
+
             else if (string.IsNullOrEmpty(gender.ToString()))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
-            else if (string.IsNullOrEmpty(admFee.ToString()) || Convert.ToInt32(admFee.ToString()) < 0)
+
+            else if (string.IsNullOrEmpty(address.ToString()))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
-            else if (string.IsNullOrEmpty(monthlyFee.ToString()) || Convert.ToInt32(monthlyFee.ToString()) < 0)
+
+            else if (string.IsNullOrEmpty(join_date.ToString()) || (DateTime.Parse(join_date.ToString()) <= DateTime.Parse("1/1/0001") || DateTime.Parse(join_date.ToString()) >= DateTime.Today))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
-            else if (!string.IsNullOrEmpty(otherCharges.ToString()) && Convert.ToInt32(otherCharges.ToString()) < 0)
+
+            else if(string.IsNullOrEmpty(father_name.ToString()))
             {
                 MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
                 return false;
             }
-            else if (string.IsNullOrEmpty(disPercent.ToString()) || Convert.ToInt32(disPercent.ToString()) < 0 || Convert.ToInt32(admFee.ToString()) > 0)
-            {
-                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
-                return false;
-            }
-            else if (string.IsNullOrEmpty(classID.ToString()) || Convert.ToInt32(classID.ToString()) <= 0)
-            {
-                MessageBox.Show("Form has invalid data", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
-                return false;
-            }
+
             else
             {
                 return true;
             }
         }
+
         #endregion
 
         #region properties
 
-        private long stdID = 12345;
-        public long StudentID
+        private long empID = 12345;
+
+        public long EmployeeID
         {
             get
             {
-                return stdID;
+                return empID;
             }
             set
             {
-                stdID = value;
-                this.RaisePropertyChanged(() => this.StudentID);
+                empID = value;
+                this.RaisePropertyChanged(() => this.EmployeeID);
             }
         }
 
         private string fName = "Carl";
+
         public string FirstName
         {
             get
@@ -143,19 +141,6 @@ namespace DataBindingDemo
             {
                 fName = value;
                 this.RaisePropertyChanged(() => this.FirstName);
-            }
-        }
-        private long afterdiscountedFee = 0;
-        public long AfterdiscountedFee
-        {
-            get
-            {
-                return afterdiscountedFee;
-            }
-            set
-            {
-                afterdiscountedFee = value;
-                this.RaisePropertyChanged(() => this.MonthlyFee);
             }
         }
 
@@ -187,21 +172,92 @@ namespace DataBindingDemo
             }
         }
 
-        private string admDate = DateTime.Today.ToString();
-        public string AdmissionDate
+        private string cnic_info = "35202-xxxxxxx-x";
+        public string CNIC
         {
             get
             {
-                return admDate;
+                return cnic_info;
             }
             set
             {
-                admDate = value;
-                this.RaisePropertyChanged(() => this.AdmissionDate);
+                cnic_info = value;
+                this.RaisePropertyChanged(() => this.CNIC);
             }
         }
 
-        private string gender = "Male";
+        private string contact_no_1 = "03xx-xxxxxxx";
+        public string ContactNo1
+        {
+            get
+            {
+                return contact_no_1;
+            }
+            set
+            {
+                contact_no_1 = value;
+                this.RaisePropertyChanged(() => this.ContactNo1);
+            }
+        }
+
+        private string contact_no_2 = "03yy-yyyyyyy";
+        public string ContactNo2
+        {
+            get
+            {
+                return contact_no_2;
+            }
+            set
+            {
+                contact_no_2 = value;
+                this.RaisePropertyChanged(() => this.ContactNo2);
+            }
+        }
+
+
+        private string email_id = "xxxx@aol.com";
+        public string EmailID
+        {
+            get
+            {
+                return email_id;
+            }
+            set
+            {
+                email_id = value;
+                this.RaisePropertyChanged(() => this.EmailID);
+            }
+        }
+
+        private long salary = 20000;
+        public long Salary
+        {
+            get
+            {
+                return salary;
+            }
+            set
+            {
+                salary = value;
+                this.RaisePropertyChanged(() => this.Salary);
+            }
+        }
+
+        private long userID = 56789;
+        public long UserID
+        {
+            get
+            {
+                return userID;
+            }
+            set
+            {
+                userID = value;
+                this.RaisePropertyChanged(() => this.UserID);
+            }
+        }
+
+        private string gender = "not defined";
         public string Gender
         {
             get
@@ -215,92 +271,15 @@ namespace DataBindingDemo
             }
         }
 
-        private long admFee = 100;
-        public long AdmissionFee
+        private string address = " this is an address, Lahore. ";
+        public string Address
         {
-            get
-            {
-                return admFee;
-            }
-            set
-            {
-                admFee = value;
-                this.RaisePropertyChanged(() => this.AdmissionFee);
-            }
-        }
-
-        private long monthlyFee = 200;
-        public long MonthlyFee
-        {
-            get
-            {
-                return monthlyFee;
-            }
-            set
-            {
-                monthlyFee = value;
-                this.RaisePropertyChanged(() => this.MonthlyFee);
-            }
-        }
-
-        private long otherCharges = 0;
-        public long OtherCharges
-        {
-            get
-            {
-                return otherCharges;
-            }
-            set
-            {
-                otherCharges = value;
-                this.RaisePropertyChanged(() => this.OtherCharges);
-            }
-        }
-
-        private long disPercent = 0;
-        public long DiscountPercentage
-        {
-            get
-            {
-                return disPercent;
-            }
-            set
-            {
-                disPercent = value;
-                this.RaisePropertyChanged(() => this.DiscountPercentage);
-            }
-        }
-
-        private long parentID = 56789;
-        public long ParentID
-        {
-            get
-            {
-                return parentID;
-            }
-            set
-            {
-                parentID = value;
-                this.RaisePropertyChanged(() => this.ParentID);
-            }
-        }
-
-        private long classID = 111;
-        public long ClassID
-        {
-            get
-            {
-                return classID;
-            }
-            set
-            {
-                classID = value;
-                this.RaisePropertyChanged(() => this.ClassID);
-            }
+            get { return address; }
+            set { this.RaisePropertyChanged(() => this.Address); }
         }
 
         private Nullable<bool> active;
-        public Nullable<bool> isActive
+        public Nullable<bool> isEmployed
         {
             get
             {
@@ -309,12 +288,34 @@ namespace DataBindingDemo
             set
             {
                 active = value;
-                this.RaisePropertyChanged(() => this.isActive);
+                this.RaisePropertyChanged(() => this.isEmployed);
             }
         }
 
-        #endregion
+        private string join_date = DateTime.Parse("10/27/2002", new System.Globalization.CultureInfo("en-US", true)).ToString();
+        public string Joining_date
+        {
+            get
+            {
+                return join_date;
+            }
+            set
+            {
+                join_date = value;
+                this.RaisePropertyChanged(() => this.Joining_date);
+            }
+        }
 
+        private string father_name = "Carl Johnson";
+        public string FatherName
+        {
+            get {return father_name; }
+            set { father_name = value; this.RaisePropertyChanged(() => this.FatherName); }
+        }
+        
+        
+        
+        #endregion
 
         #region error
         public string Error
@@ -324,14 +325,13 @@ namespace DataBindingDemo
 
         public string this[string columnName]
         {
-
             get
             {
                 string error = null;
                 switch (columnName)
                 {
                     case "StudentID":
-                        if (stdID <= 0 || stdID > 10000000)
+                        if (empID <= 0 || empID > 10000000)
                         {
                             error = "Student ID must be in range";
                         }
@@ -348,58 +348,72 @@ namespace DataBindingDemo
                             error = "Last Name is required.";
                         }
                         break;
-                    case "DateOfBirth":
+                    case "DOB":
                         if (DateTime.Parse(dob) <= DateTime.Parse("1/1/0001") || DateTime.Parse(dob) >= DateTime.Today)
                         {
                             error = "Valid Date of Birth required.";
                         }
                         break;
-                    case "AdmissionDate":
-                        if (DateTime.Parse(admDate) <= DateTime.Parse("1/1/0001") || DateTime.Parse(admDate) >= DateTime.Today)
+
+                    case "CNIC":
+                        if (string.IsNullOrEmpty(cnic_info))
                         {
-                            error = "Valid Admission Date required.";
+                            error = "CNIC information is missing";
+                        }
+                        break;
+
+                    case "ContactNo1":
+                        if (string.IsNullOrEmpty(contact_no_1))
+                        {
+                            error = "Contact No. 1 is required.";
+                        }
+                        break;
+                    case "ContactNo2":
+                        if (string.IsNullOrEmpty(contact_no_2))
+                        {
+                            error = "Contact No. 1 is required.";
+                        }
+                        break;
+                    case "EmailID":
+                        if (string.IsNullOrEmpty(email_id))
+                        {
+                            error = "Email information is empty.";
+                        }
+                        break;
+                    case "Salary":
+                        if(salary <= 0 || salary >= 200000)
+                        {
+                            error = "Salary not in range. ";
+                        }
+                        break;
+                    case "UserID":
+                        if( userID <= 0 || userID >= 10000000)
+                        {
+                            error = "UserID not in range. ";
                         }
                         break;
                     case "Gender":
-                        if (string.IsNullOrEmpty(gender))
+                        if( string.IsNullOrEmpty(gender))
                         {
-                            error = "Gender is required.";
+                            error = "Gender field is empty.";
                         }
                         break;
-                    case "AdmissionFee":
-                        if (admFee <= 0 || admFee > 10000000)
+                    case "Address":
+                       if( string.IsNullOrEmpty(address))
                         {
-                            error = "Admission fee must be in range";
+                            error = "Address field is empty.";
                         }
                         break;
-                    case "MonthlyFee":
-                        if (monthlyFee <= 0 || monthlyFee > 10000000)
+                    case "Joining_date":
+                        if (DateTime.Parse(join_date) <= DateTime.Parse("1/1/0001") || DateTime.Parse(join_date) >= DateTime.Today)
                         {
-                            error = "Monthly fee must be in range";
+                            error = "Valid Joining Date is required.";
                         }
                         break;
-                    case "OtherCharges":
-                        if (otherCharges < 0 || otherCharges > 10000000)
+                    case "FatherName":
+                        if (string.IsNullOrEmpty(father_name))
                         {
-                            error = "Other charges must be in range";
-                        }
-                        break;
-                    case "DiscountPercentage":
-                        if (disPercent < 0 || disPercent > 100)
-                        {
-                            error = "Discount percentage must be between 0% and 100%";
-                        }
-                        break;
-                    case "ParentID":
-                        if (parentID <= 0 || parentID > 10000000)
-                        {
-                            error = "Parent ID must be in range";
-                        }
-                        break;
-                    case "ClassID":
-                        if (classID <= 0 || classID > 10000000)
-                        {
-                            error = "Class ID must be in range";
+                            error = "Father Name field is empty.";
                         }
                         break;
                 }

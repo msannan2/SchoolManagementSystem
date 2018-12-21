@@ -131,7 +131,7 @@ namespace DataBindingDemo
             {
                 if (_addStudentCommand == null)
                 {
-                    _addStudentCommand = new DelegateCommand<object>(ValidateAll);
+                    _addStudentCommand = new DelegateCommand<object>(AddStudent);
                 }
                 return _addStudentCommand;
             }
@@ -167,7 +167,7 @@ namespace DataBindingDemo
 
             }
         }
-        public void ValidateAll(object param)
+        public void AddStudent(object param)
         {
         if(NewParent)
             {
