@@ -17,20 +17,18 @@ namespace DataBindingDemo
 {
     public class NewUserViewModel : NotificationObject
     {
-        ObservableCollection <Class> classlist;
+        ObservableCollection<Class> classlist;
         public NewUserViewModel()
         {
-            
+
             Model_Student = new Student();
             Model_Class = new Class();
             Model_Parent = new Parent();
             SectionArr = new ObservableCollection<string>();
             using (var context = new mainEntities())
             {
-                ClassArr =new ObservableCollection<string>(context.Classes.Select(p => p.ClassName).Distinct().ToList());
+                ClassArr = new ObservableCollection<string>(context.Classes.Select(p => p.ClassName).Distinct().ToList());
                 ParentArr = new ObservableCollection<long>(context.Parents.Select(p => p.ParentID).ToList());
-
-
             }
          
         }
@@ -64,8 +62,8 @@ namespace DataBindingDemo
                 this.RaisePropertyChanged(() => this.SectionSelected);
             }
         }
-        private ObservableCollection <long> _parentarr;
-        public ObservableCollection <long> ParentArr
+        private ObservableCollection<long> _parentarr;
+        public ObservableCollection<long> ParentArr
         {
             get { return _parentarr; }
             set
@@ -74,8 +72,8 @@ namespace DataBindingDemo
                 this.RaisePropertyChanged(() => this.ParentArr);
             }
         }
-        private ObservableCollection <string> _classarr;
-        public ObservableCollection <string> ClassArr
+        private ObservableCollection<string> _classarr;
+        public ObservableCollection<string> ClassArr
         {
             get { return _classarr; }
             set
@@ -85,8 +83,8 @@ namespace DataBindingDemo
             }
         }
 
-        private ObservableCollection <string> _sectionarr;
-        public ObservableCollection <string> SectionArr
+        private ObservableCollection<string> _sectionarr;
+        public ObservableCollection<string> SectionArr
         {
             get { return _sectionarr; }
             set
@@ -170,22 +168,22 @@ namespace DataBindingDemo
         }
         public void AddStudent(object param)
         {
-        if(NewParent)
+            if (NewParent)
             {
-              if(Model_Student.Validate() && Model_Parent.Validate())
+                if (Model_Student.Validate() && Model_Parent.Validate())
                 {
                     using (var context = new mainEntities())
                     {
                         context.Parents.Add(Model_Parent);
                         Model_Parent.Students.Add(Model_Student);
-                       // Model_Student.ParentID = Model_Parent.ParentID;
+                        // Model_Student.ParentID = Model_Parent.ParentID;
                         //Model_Student.Parent.
-                       // context.Students.Add(Model_Student);
+                        // context.Students.Add(Model_Student);
                         context.SaveChanges();
                     }
                 }
             }
-        else
+            else
             {
                 if (Model_Student.Validate() && Model_Student.ValidateParentID())
                 {

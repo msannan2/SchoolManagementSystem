@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DataBindingDemo
+namespace DataBindingD
 {
     using System;
     using System.Data.Entity;

@@ -17,7 +17,6 @@ namespace DataBindingDemo
 {
     public class NewEmployeeViewModel : NotificationObject
     {
-        ObservableCollection<Class> classlist;
         public NewEmployeeViewModel()
         {
             Model_Employee = new Employee();
@@ -50,10 +49,13 @@ namespace DataBindingDemo
 
         public void ValidateAll(object param)
         {
-            using (var context = new mainEntities())
+            if (Model_Employee.Validate())
             {
+                using (var context = new mainEntities())
+                {
                     context.Employees.Add(Model_Employee);
                     context.SaveChanges();
+                }
             }
 
         }

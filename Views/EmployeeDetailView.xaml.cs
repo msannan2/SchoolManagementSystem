@@ -103,7 +103,7 @@ namespace DataBindingDemo
 
             //Underlying business data (In this case OrderInfo)
             var record = (recordentry as RecordEntry).Data;
-            var profile = new ProfileView((Student)record);
+            var profile = new EmployeeProfileView((Employee)record);
             profile.Show();
 
         }

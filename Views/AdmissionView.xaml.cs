@@ -31,6 +31,7 @@ namespace DataBindingDemo
         {
             InitializeComponent();
         }
+
         private void NameMask_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if ((int)e.Key >= 44 && (int)e.Key <= 69 || e.Key == Key.Space)
