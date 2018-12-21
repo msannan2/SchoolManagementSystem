@@ -21,6 +21,28 @@ namespace DataBindingDemo
 {
     public partial class Student : NotificationObject, IDataErrorInfo
     {
+        public Student DeepCopy()
+        {
+            Student temp = new Student();
+            temp.AdmissionDate = AdmissionDate;
+            temp.AdmissionFee = AdmissionFee;
+            temp.Class = Class;
+            temp.ClassID = ClassID;
+            temp.ClassSessions = ClassSessions;
+            temp.DateOfBirth = DateOfBirth;
+            temp.DiscountPercentage = DiscountPercentage;
+            temp.FeeDetails = FeeDetails;
+            temp.FirstName = FirstName;
+            temp.LastName = LastName;
+            temp.isActive = isActive;
+            temp.MonthlyFee = MonthlyFee;
+            temp.OtherCharges = OtherCharges;
+            temp.Parent = Parent;
+            temp.ParentID = ParentID;
+            temp.StudentAttendances = StudentAttendances;
+            temp.StudentID = temp.StudentID;
+            return temp;
+        }
 
         #region RegisterCommandValidation
         public bool ValidateParentID()
@@ -121,6 +143,19 @@ namespace DataBindingDemo
             {
                 fName = value;
                 this.RaisePropertyChanged(() => this.FirstName);
+            }
+        }
+        private long afterdiscountedFee = 0;
+        public long AfterdiscountedFee
+        {
+            get
+            {
+                return afterdiscountedFee;
+            }
+            set
+            {
+                afterdiscountedFee = value;
+                this.RaisePropertyChanged(() => this.MonthlyFee);
             }
         }
 

@@ -52,7 +52,7 @@ namespace DataBindingDemo
             {
                 if (TileItem != null && TileItem.TileViewItemState == TileViewItemState.Maximized)
                 {
-                     TweetList.ItemsSource = GetSearchResults(SearchText);
+                     
                 }
             }), DispatcherPriority.ApplicationIdle);
         }
@@ -82,48 +82,7 @@ namespace DataBindingDemo
 
         
 
-        public List<Tweet> GetSearchResults(string searchString)
-        {
-            using (WebClient web = new WebClient())
-            {
-                string url = string.Format("http://search.twitter.com/search.atom?lang=en&q={0}", searchString);
-                WebClient client = new WebClient();
-                List<Tweet> tweets = null;
-                try
-                {
-                    XDocument doc = XDocument.Load(url);
-                    XNamespace ns = "http://www.w3.org/2005/Atom";
-                    tweets = (from item in doc.Descendants(ns + "entry")
-                              select new Tweet
-                              {
-                                  Id = item.Element(ns + "id").Value,
-                                  Published = DateTime.Parse(item.Element(ns + "published").Value),
-                                  Title = item.Element(ns + "title").Value,
-                                  Content = item.Element(ns + "content").Value,
-                                  Link = (from XElement x in item.Descendants(ns + "link")
-                                          where x.Attribute("type").Value == "text/html"
-                                          select x.Attribute("href").Value).First(),
-                                  Image = (from XElement x in item.Descendants(ns + "link")
-                                           where x.Attribute("type").Value == "image/png"
-                                           select x.Attribute("href").Value).First(),
-                                  Author = new Author()
-                                  {
-                                      Name = item.Element(ns + "author").Element(ns + "name").Value,
-                                      Uri = item.Element(ns + "author").Element(ns + "uri").Value
-                                  }
-
-                              }).ToList();
-
-
-                }
-                catch (Exception)
-                {
-                    // status.Text = "--no data connection--";
-                }
-                return tweets;
-
-            }
-        }
+        
 
         
     }
