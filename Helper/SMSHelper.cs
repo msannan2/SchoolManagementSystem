@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using SharpAdbClient;
 
-namespace DataBindingDemo.Helper
+namespace DataBindingDemo
 {
     public class SMSHelper
     {
@@ -46,6 +46,32 @@ namespace DataBindingDemo.Helper
             }
             
            
+            //foreach(var contact in recipients)
+            //{
+            //if(contact.ContactNo1!=null)
+            //    {
+            //    string =
+            //    }
+            //}
+            return true;
+        }
+        public bool SendSMS(List<Employee> recipients, string message)
+        {
+
+            var device = AdbClient.Instance.GetDevices().First();
+            var receiver = new ConsoleOutputReceiver();
+            foreach (var c in recipients)
+            {
+                if (c.ContactNo1 != null)
+                {
+                    string s = "adb shell am start - a android.intent.action.SENDTO - d sms:" + c.ContactNo1 + "--es sms_body " + message + "--ez exit_on_sent true";
+                    AdbClient.Instance.ExecuteRemoteCommand(s, device, receiver);
+                    AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 61", device, receiver);
+                    AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 66", device, receiver);
+                }
+            }
+
+
             //foreach(var contact in recipients)
             //{
             //if(contact.ContactNo1!=null)

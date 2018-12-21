@@ -22,14 +22,13 @@ using Syncfusion.Windows.Shared;
 
 namespace DataBindingDemo
 {
-    /// <summary>
-    /// Interaction logic for StoreView.xaml
-    /// </summary>
-    public partial class StoreView : UserControl
+    
+    public partial class NotificationView : UserControl
     {
-        public StoreView()
+        public NotificationView()
         {
             InitializeComponent();
+
         }
     }
 }

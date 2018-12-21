@@ -18,7 +18,15 @@ namespace DataBindingDemo
     {
         public override bool Update(string message, string subject)
         {
-            throw new NotImplementedException();
+            List<Employee> T;
+            bool error;
+            SMSHelper h = new SMSHelper();
+            using (var context = new mainEntities())
+            {
+                T = context.Employees.ToList();
+                error = h.SendSMS(T, message);
+            }
+            return error;
         }
     }
 
@@ -43,7 +51,15 @@ namespace DataBindingDemo
     {
         public override bool Update(string message, string subject)
         {
-            throw new NotImplementedException();
+            List<Parent> T;
+            bool error;
+            SMSHelper h = new SMSHelper();
+            using (var context = new mainEntities())
+            {
+                T = context.Parents.ToList();
+                error = h.SendSMS(T, message);
+            }
+            return error;
         }
     }
 }

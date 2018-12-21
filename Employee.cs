@@ -21,21 +21,7 @@ namespace DataBindingDemo
             this.Teachers = new HashSet<Teacher>();
         }
     
-        public long EmployeeID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string DOB { get; set; }
-        public string CNIC { get; set; }
-        public string ContactNo1 { get; set; }
-        public string ContactNo2 { get; set; }
-        public string EmailID { get; set; }
-        public long Salary { get; set; }
-        public long UserID { get; set; }
-        public string Gender { get; set; }
-        public string Address { get; set; }
-        public Nullable<bool> isEmployed { get; set; }
-        public string Joining_date { get; set; }
-        public string FatherName { get; set; }
+        
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

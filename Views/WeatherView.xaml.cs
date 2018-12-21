@@ -30,8 +30,7 @@ namespace DataBindingDemo
         public WeatherView()
         {
             InitializeComponent();
-            SMTPHelper h = new SMTPHelper();
-            h.SendEmail("Shit", "Shit");
+            
         }
 
         public string Now

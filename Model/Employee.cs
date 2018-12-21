@@ -159,7 +159,7 @@ namespace DataBindingDemo
         }
 
         private string dob = DateTime.Parse("10/27/2002", new System.Globalization.CultureInfo("en-US", true)).ToString();
-        public string DateOfBirth
+        public string DOB
         {
             get
             {
@@ -168,7 +168,7 @@ namespace DataBindingDemo
             set
             {
                 dob = value;
-                this.RaisePropertyChanged(() => this.DateOfBirth);
+                this.RaisePropertyChanged(() => this.DOB);
             }
         }
 

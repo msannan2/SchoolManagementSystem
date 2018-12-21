@@ -245,6 +245,7 @@
     </Compile>
     <Compile Include="ViewModel\NewEmployeeViewModel.cs" />
     <Compile Include="ViewModel\NewUserViewModel.cs" />
+    <Compile Include="ViewModel\NotificationViewModel.cs" />
     <Compile Include="ViewModel\StudentModel.cs" />
     <Compile Include="Views\EditStudentDetialsView.xaml.cs">
       <DependentUpon>EditStudentDetialsView.xaml</DependentUpon>
@@ -272,8 +273,8 @@
       <DependentUpon>StockView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\StockViewModel.cs" />
-    <Compile Include="Views\StoreView.xaml.cs">
-      <DependentUpon>StoreView.xaml</DependentUpon>
+    <Compile Include="Views\NotificationView.xaml.cs">
+      <DependentUpon>NotificationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TileItemView.xaml.cs">
       <DependentUpon>TileItemView.xaml</DependentUpon>
@@ -337,7 +338,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StoreView.xaml">
+    <Page Include="Views\NotificationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

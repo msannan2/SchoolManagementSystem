@@ -33,7 +33,7 @@ namespace DataBindingDemo
             Applications.Add(new ApplicationTile() { Name = "Staff", Color = "green", Icon = "/Images/account-card-details.png", View = new GalleryView(), Header = "Teachers", Description = "Manage Staff Records", CanSlide = false});
             Applications.Add(new ApplicationTile() { Name = "Schedule", Color = "#FF02478A", Icon = "/Images/calendar-clock.png", View = new BrowserView(), Header = "Time Table" , Description = "Manage Time Tables and Academic Calendar  " });
             Applications.Add(new ApplicationTile() { Name = "Attendance", Header = "Attendance", Color = "#FF9AB534", Icon = "/Images/calendar-multiple-check.png", View = new ComputerView(),Description = "Manage Student and Staff attendance  " });
-            Applications.Add(new ApplicationTile() { Name = "Notifications", Color = "#FF7D35B2", Icon = "/Images/email-alert.png", Header = "Send SMS", View = new StoreView(), Description = "Send Anouncements and Reminders via SMS  " });
+            Applications.Add(new ApplicationTile() { Name = "Notifications", Color = "#FF7D35B2", Icon = "/Images/email-alert.png", Header = "Send SMS", View = new NotificationView(), Description = "Send Anouncements and Reminders via SMS  " });
             Applications.Add(new ApplicationTile() { Name = "Settings", Color = "#FF781768", View = new VideosView(), Icon = "/Images/wrench.png", Description = "Change Application Settings", Header = "Preferences" });
         }
        
