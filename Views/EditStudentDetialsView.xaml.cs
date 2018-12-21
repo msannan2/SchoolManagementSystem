@@ -22,16 +22,20 @@ using Syncfusion.Windows.Shared;
 
 namespace DataBindingDemo
 {
-    /// <summary>
-    /// Interaction logic for NewsView.xaml
-    /// </summary>
-    public partial class AdmissionView : UserControl
+   
+    public partial class EditStudentDetailsView : Window
     {
-        public AdmissionView()
+        public EditStudentDetailsView(Student student)
         {
             InitializeComponent();
+            var datacontext = new NewUserViewModel();
+            datacontext.Model_Student = student;
+            datacontext.Model_Parent = student.Parent;
+            datacontext.ClassSelected = datacontext.Model_Student.Class.ClassName;
+            datacontext.UpdateSections(student);
+            datacontext.SectionSelected = datacontext.Model_Student.Class.Section;
+            DataContext = datacontext;
         }
-
         private void NameMask_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if ((int)e.Key >= 44 && (int)e.Key <= 69 || e.Key == Key.Space)

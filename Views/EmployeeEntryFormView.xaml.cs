@@ -23,11 +23,11 @@ using Syncfusion.Windows.Shared;
 namespace DataBindingDemo
 {
     /// <summary>
-    /// Interaction logic for NewsView.xaml
+    /// Interaction logic for EmployeeEntryView.xaml
     /// </summary>
-    public partial class AdmissionView : UserControl
+    public partial class EmployeeEntryFormView : UserControl
     {
-        public AdmissionView()
+        public EmployeeEntryFormView()
         {
             InitializeComponent();
         }

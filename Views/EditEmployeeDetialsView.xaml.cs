@@ -25,11 +25,17 @@ namespace DataBindingDemo
     /// <summary>
     /// Interaction logic for NewsView.xaml
     /// </summary>
-    public partial class AdmissionView : UserControl
+    public partial class EditEmployeeDetailsView : Window
     {
-        public AdmissionView()
+        public EditEmployeeDetailsView(Employee employee)
         {
             InitializeComponent();
+
+            var datacontext = new NewEmployeeViewModel();
+
+            datacontext.Model_Employee = employee;
+
+            DataContext = datacontext;
         }
 
         private void NameMask_PreviewKeyDown(object sender, KeyEventArgs e)

@@ -21,6 +21,7 @@ namespace DataBindingDemo
             this.EmployeeAttendances = new HashSet<EmployeeAttendance>();
             this.FeeDetails = new HashSet<FeeDetail>();
             this.StudentAttendances = new HashSet<StudentAttendance>();
+
         }
     
         public long SessionID { get; set; }
