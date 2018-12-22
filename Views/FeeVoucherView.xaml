@@ -6,42 +6,52 @@
         xmlns:local="clr-namespace:DataBindingDemo"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="FeeVoucherView" Height="550" Width="300">
+        Title="FeeVoucher" Height="570" Width="370">
     <Grid Margin="0,0,2,0">
-        <Grid Background="WhiteSmoke" Margin="0,0,-60,0">
-            <Label Content="" Background="LightSteelBlue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="616" Height="41"/>
-            <Label Content="Fee Details" Background="Transparent" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Top" Height="38" Width="160" FontSize="20" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
+        <Button x:Name="btn"  Content="Print" Command="{Binding Path=PrintCommand}" CommandParameter="{Binding ElementName=ReportPanel}"></Button>
+        <Grid x:Name="ReportPanel" >
+            <Grid
+            Background="WhiteSmoke" Margin="0,0,-60,0">
+                <Label Content="" Background="LightSteelBlue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="616" Height="41"/>
+                <Label Content="Fee Details" Background="Transparent" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Top" Height="38" Width="160" FontSize="20" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
 
+            </Grid>
+            <Label Content="First Name " HorizontalAlignment="Left" Margin="6,47,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Last Name " HorizontalAlignment="Left" Margin="6,75,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Student ID" HorizontalAlignment="Left" Margin="6,107,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Parent ID" HorizontalAlignment="Left" Margin="6,138,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Siblings" HorizontalAlignment="Left" Margin="6,171,0,0" VerticalAlignment="Top" Height="38" Width="98" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Fee Month" HorizontalAlignment="Left" Margin="6,207,0,0" VerticalAlignment="Top" Height="38" Width="115" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Section" HorizontalAlignment="Left" Margin="6,267,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Class" HorizontalAlignment="Left" Margin="6,235,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Fee" HorizontalAlignment="Left" Margin="6,295,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Discount %" HorizontalAlignment="Left" Margin="6,327,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <Label Content="Discounted fee" HorizontalAlignment="Left" Margin="6,362,0,0" VerticalAlignment="Top" Height="31" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+
+
+
+            <syncfusion:MaskedTextBox Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
+                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,81,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="148" Text="{Binding LastName}"/>
+            <syncfusion:MaskedTextBox ReadOnly="True" 
+                                Value="{Binding StudentID ,Mode=TwoWay, ValidatesOnDataErrors=True, 
+                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False"  HorizontalAlignment="Left" Height="23" Margin="121,113,0,0" TextWrapping="NoWrap" Text="{Binding StudentID}" VerticalAlignment="Top" Width="98" />
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="121,144,0,0" TextWrapping="NoWrap" Text="{Binding ParentID}" VerticalAlignment="Top" Width="98"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="121,177,0,0" TextWrapping="NoWrap" Text="{Binding Sibblings}" VerticalAlignment="Top" Width="98"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="121,213,0,0" TextWrapping="NoWrap" Text="{Binding Time}" VerticalAlignment="Top" Width="98"/>
+            <syncfusion:MaskedTextBox ReadOnly="True" Value="{Binding FirstName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
+                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,51,0,0" TextWrapping="NoWrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="148"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="121,273,0,0" TextWrapping="NoWrap" Text="{Binding Class.Section}" VerticalAlignment="Top" Width="65"/>
+            <TextBox  Text="{Binding Class.ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,242,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" />
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="121,300,0,0" TextWrapping="NoWrap" Text="{Binding MonthlyFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="1.043,0.348" />
+            <TextBox HorizontalAlignment="Left"  Height="23" Margin="121,331,0,0" TextWrapping="NoWrap" Text="{Binding DiscountPercentage}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
+            <TextBox HorizontalAlignment="Left"  Height="23" Margin="121,362,0,0" TextWrapping="NoWrap" Text="{Binding AfterDiscountedFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
+            <Button Name="btnUpdate"  Content="Print" Margin="252,500,10,6" FontSize="16" Click="BtnUpdate_Click"/>
+            <Label Content="Payable By" HorizontalAlignment="Left" Margin="6,392,0,0" VerticalAlignment="Top" Height="32" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left"  Height="24" Margin="121,392,0,0" TextWrapping="NoWrap" Text="{Binding PaidTime}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
+            <Label Content="Other Charges" HorizontalAlignment="Left" Margin="6,421,0,0" VerticalAlignment="Top" Height="32" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left"  Height="24" Margin="121,421,0,0" TextWrapping="NoWrap" Text="{Binding OtherCharges}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
+            <Label Content="Total Fees" HorizontalAlignment="Left" Margin="6,453,0,0" VerticalAlignment="Top" Height="32" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left"  Height="24" Margin="121,453,0,0" TextWrapping="NoWrap" Text="{Binding TotalFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
         </Grid>
-        <Label Content="First Name " HorizontalAlignment="Left" Margin="6,49,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Last Name " HorizontalAlignment="Left" Margin="6,85,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Student ID" HorizontalAlignment="Left" Margin="6,119,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Parent ID" HorizontalAlignment="Left" Margin="6,152,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Siblings" HorizontalAlignment="Left" Margin="6,187,0,0" VerticalAlignment="Top" Height="38" Width="98" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Fee Month" HorizontalAlignment="Left" Margin="6,225,0,0" VerticalAlignment="Top" Height="38" Width="115" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Section" HorizontalAlignment="Left" Margin="6,301,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Class" HorizontalAlignment="Left" Margin="6,263,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Fee" HorizontalAlignment="Left" Margin="6,341,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Discount " HorizontalAlignment="Left" Margin="6,383,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Discounted fee" HorizontalAlignment="Left" Margin="6,422,0,0" VerticalAlignment="Top" Height="31" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-
-
-
-        <syncfusion:MaskedTextBox Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
-                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,91,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="148" Text="{Binding LastName}"/>
-        <syncfusion:MaskedTextBox ReadOnly="True" 
-                                Value="{Binding LastName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
-                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False"  HorizontalAlignment="Left" Height="23" Margin="121,125,0,0" TextWrapping="NoWrap" Text="{Binding StudentID}" VerticalAlignment="Top" Width="98" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,158,0,0" TextWrapping="NoWrap" Text="{Binding ParentID}" VerticalAlignment="Top" Width="98"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,193,0,0" TextWrapping="NoWrap" Text="{Binding DateOfBirth}" VerticalAlignment="Top" Width="98"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,231,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionDate}" VerticalAlignment="Top" Width="98"/>
-        <syncfusion:MaskedTextBox ReadOnly="True" Value="{Binding FirstName ,Mode=TwoWay, ValidatesOnDataErrors=True, 
-                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" WatermarkTextIsVisible="False" HorizontalAlignment="Left" Height="23" Margin="121,53,0,0" TextWrapping="NoWrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="148"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,307,0,0" TextWrapping="NoWrap" Text="{Binding Class.Section}" VerticalAlignment="Top" Width="65"/>
-        <TextBox  Text="{Binding Class.ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,270,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="121,346,0,0" TextWrapping="NoWrap" Text="{Binding MonthlyFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="1.043,0.348" />
-        <TextBox HorizontalAlignment="Left"  Height="23" Margin="121,387,0,0" TextWrapping="NoWrap" Text="{Binding Discount}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
-        <TextBox HorizontalAlignment="Left"  Height="23" Margin="121,422,0,0" TextWrapping="NoWrap" Text="{Binding afterDiscountfee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" />
-        <Button Name="btnUpdate"  Content="Print" Margin="194,466,19,21" FontSize="16"/>
     </Grid>
 </Window>

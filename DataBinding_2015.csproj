@@ -156,6 +156,7 @@
       <HintPath>packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -296,6 +297,9 @@
     <Compile Include="TileItemView.xaml.cs">
       <DependentUpon>TileItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FeeDetailView.xaml.cs">
+      <DependentUpon>FeeDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StudentDetailView.xaml.cs">
       <DependentUpon>StudentDetailView.xaml</DependentUpon>
     </Compile>
@@ -374,6 +378,10 @@
     <Page Include="TileItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FeeDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\StudentDetailView.xaml">
       <SubType>Designer</SubType>

@@ -30,7 +30,8 @@ namespace DataBindingDemo
         public WeatherView()
         {
             InitializeComponent();
-            
+           
+
         }
 
         public string Now

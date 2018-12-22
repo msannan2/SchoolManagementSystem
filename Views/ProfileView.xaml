@@ -11,7 +11,7 @@
         <Grid Background="WhiteSmoke" Margin="0,0,-60,0">
             <Label Content="" Background="LightSteelBlue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="616" Height="41"/>
             <Label Content="Student Details" Background="Transparent" HorizontalAlignment="Left" Margin="6,3,0,0" VerticalAlignment="Top" Height="38" Width="160" FontSize="20" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-           
+
         </Grid>
         <Label Content="First Name " HorizontalAlignment="Left" Margin="6,49,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Last Name " HorizontalAlignment="Left" Margin="6,85,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
@@ -25,8 +25,7 @@
         <Label Content="Section" HorizontalAlignment="Left" Margin="6,460,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Class" HorizontalAlignment="Left" Margin="6,422,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Fee" HorizontalAlignment="Left" Margin="324,343,0,0" VerticalAlignment="Top" Height="38" Width="101" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Discount %" HorizontalAlignment="Left" Margin="324,386,0,0" VerticalAlignment="Top" Height="38" Width="85" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
-        <Label Content="Discounted fee" HorizontalAlignment="Left" Margin="324,429,0,0" VerticalAlignment="Top" Height="31" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
+        <Label Content="Admission Fee" HorizontalAlignment="Left" Margin="324,388,0,0" VerticalAlignment="Top" Height="31" Width="111" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Label Content="Parent Last Name "  HorizontalAlignment="Left" Margin="6,196,0,0" VerticalAlignment="Top" Height="38" Width="130" FontSize="14" FontFamily="Segoe UI Symbol" FontWeight="Bold"/>
         <Image Name="profileImage" HorizontalAlignment="Left" Height="138" Margin="384,57,0,0" VerticalAlignment="Top" Width="135" />
 
@@ -48,10 +47,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="121,466,0,0" TextWrapping="NoWrap" Text="{Binding Class.Section}" VerticalAlignment="Top" Width="65"/>
         <TextBox  Text="{Binding Class.ClassName}" HorizontalAlignment="Left" Height="23" Margin="121,429,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="98" TextChanged="TextBox_TextChanged"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="443,350,0,0" TextWrapping="NoWrap" Text="{Binding MonthlyFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="1.043,0.348" TextChanged="TextBox_TextChanged_3"/>
-        <TextBox HorizontalAlignment="Left"  Height="23" Margin="443,394,0,0" TextWrapping="NoWrap" Text="{Binding DiscountPercentage}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" TextChanged="TextBox_TextChanged_4"/>
-        <TextBox HorizontalAlignment="Left"  Height="23" Margin="443,429,0,0" TextWrapping="NoWrap" Text="{Binding AfterDiscountedFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" TextChanged="TextBox_TextChanged_2"/>
+        <TextBox HorizontalAlignment="Left"  Height="23" Margin="443,388,0,0" TextWrapping="NoWrap" Text="{Binding AdmissionFee}" VerticalAlignment="Top" Width="94" RenderTransformOrigin="0.553,2.696" TextChanged="TextBox_TextChanged_2"/>
         <TextBox x:Name="parentlastname" HorizontalAlignment="Left" Height="23" Margin="141,204,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="202" 
                  Text="{Binding Parent.LastName}" />
-        <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Edit" Margin="452,466,19,21" FontSize="16"/>
     </Grid>
 </Window>

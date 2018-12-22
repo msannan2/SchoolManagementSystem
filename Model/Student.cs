@@ -207,7 +207,19 @@ namespace DataBindingDemo
                 this.RaisePropertyChanged(() => this.MonthlyFee);
             }
         }
-
+        private long totalFee = 2000;
+        public long TotalFee
+        {
+            get
+            {
+                return totalFee;
+            }
+            set
+            {
+                totalFee = value;
+                this.RaisePropertyChanged(() => this.TotalFee);
+            }
+        }
         private long afterdiscountedFee = 0;
         public long  AfterDiscountedFee
         {
