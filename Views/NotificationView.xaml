@@ -31,17 +31,17 @@
                 <Image Source="/Images/Arrow Left.png"/>
             </Grid>
         </Button>
-        <syncfusion:MaskedTextBox HorizontalAlignment="Left" Height="36" Margin="921,169,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Send" VerticalAlignment="Top" Width="62" FontSize="22"/>
-        <CheckBox Content="" HorizontalAlignment="Left" Margin="109,178,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="20"/>
-        <CheckBox Content="" HorizontalAlignment="Left" Margin="410,178,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="15"/>
-        <CheckBox Content=""  HorizontalAlignment="Left" Margin="266,178,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="19"/>
+        <Button Background="WhiteSmoke" HorizontalAlignment="Left" Height="31" Margin="830,169,0,0" Grid.Row="2" Content="Send" VerticalAlignment="Top" Width="153" FontSize="20" Click="Button_Click" />
+        <CheckBox Name="chkparents" Content="" HorizontalAlignment="Left" Margin="109,178,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="20"/>
+        <CheckBox Name="chkemployees" Content="" HorizontalAlignment="Left" Margin="410,178,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="15"/>
+        <CheckBox Name="chkteachers" Content=""  HorizontalAlignment="Left" Margin="266,178,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="19"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="129,177,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Parents" VerticalAlignment="Top" Width="120" Foreground="White" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="20,23,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Subject" VerticalAlignment="Top" Width="76" Foreground="White" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent" FontSize="16"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="430,177,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Employees" VerticalAlignment="Top" Width="120" Foreground="White" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="285,177,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Teachers" VerticalAlignment="Top" Width="120" Foreground="White" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent"/>
-        <syncfusion:MaskedTextBox WatermarkText="Enter Subject Here.." HorizontalAlignment="Left" Margin="100,24,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEAEAEA" Height="24" Width="884" FontSize="16"/>
+        <syncfusion:MaskedTextBox Name="sub" WatermarkText="Enter Subject Here.." HorizontalAlignment="Left" Margin="100,24,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEAEAEA" Height="24" Width="884" FontSize="16" Text="{Binding subject,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="20,62,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Message" VerticalAlignment="Top" Width="76" Foreground="White" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent" FontSize="16"/>
-        <syncfusion:MaskedTextBox WatermarkText="Enter Message Here.." HorizontalAlignment="Left" Margin="100,66,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEAEAEA" Height="93" Width="884" FontSize="16"/>
+        <syncfusion:MaskedTextBox Name="msg"  WatermarkText="Enter Message Here.." HorizontalAlignment="Left" Margin="100,66,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFEAEAEA" Height="93" Width="884" FontSize="16" Text="{Binding message,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </UserControl>

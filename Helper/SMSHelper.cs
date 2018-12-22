@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using SharpAdbClient;
+using System.Windows;
 
 namespace DataBindingDemo
 {
@@ -31,6 +32,8 @@ namespace DataBindingDemo
         }
         public bool SendSMS(List<Parent> recipients,string message)
         {
+            try
+            {
 
             var device = AdbClient.Instance.GetDevices().First();
             var receiver = new ConsoleOutputReceiver();
@@ -44,8 +47,20 @@ namespace DataBindingDemo
                     AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 66", device, receiver);
                 }
             }
-            
-           
+            }
+            catch (Exception e)
+            {
+                if (e.InnerException is NullReferenceException)
+                {
+                    MessageBox.Show("Device Not found");
+                }
+                else
+                {
+                    MessageBox.Show(e.Message);
+                }
+                return false;
+            }
+
             //foreach(var contact in recipients)
             //{
             //if(contact.ContactNo1!=null)
@@ -57,19 +72,36 @@ namespace DataBindingDemo
         }
         public bool SendSMS(List<Employee> recipients, string message)
         {
-
-            var device = AdbClient.Instance.GetDevices().First();
-            var receiver = new ConsoleOutputReceiver();
-            foreach (var c in recipients)
+            
+            try
             {
-                if (c.ContactNo1 != null)
+
+                var device = AdbClient.Instance.GetDevices().First();
+                var receiver = new ConsoleOutputReceiver();
+                foreach (var c in recipients)
                 {
-                    string s = "adb shell am start - a android.intent.action.SENDTO - d sms:" + c.ContactNo1 + "--es sms_body " + message + "--ez exit_on_sent true";
-                    AdbClient.Instance.ExecuteRemoteCommand(s, device, receiver);
-                    AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 61", device, receiver);
-                    AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 66", device, receiver);
+                    if (c.ContactNo1 != null)
+                    {
+                        string s = "adb shell am start - a android.intent.action.SENDTO - d sms:" + c.ContactNo1 + "--es sms_body " + message + "--ez exit_on_sent true";
+                        AdbClient.Instance.ExecuteRemoteCommand(s, device, receiver);
+                        AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 61", device, receiver);
+                        AdbClient.Instance.ExecuteRemoteCommand("abd shell input keyevent 66", device, receiver);
+                    }
                 }
             }
+            catch(Exception e)
+            {
+                if (e.InnerException is NullReferenceException)
+                {
+                    MessageBox.Show("Device Not found");
+                }
+                else
+                {
+                    MessageBox.Show(e.Message);
+                }
+                return false;
+            }
+            
 
 
             //foreach(var contact in recipients)

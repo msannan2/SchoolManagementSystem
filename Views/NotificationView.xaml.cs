@@ -25,10 +25,40 @@ namespace DataBindingDemo
     
     public partial class NotificationView : UserControl
     {
+        NotificationViewModel notify;
+        string message, subject;
         public NotificationView()
         {
             InitializeComponent();
+            notify = new NotificationViewModel();
+            DataContext = notify;
+        }
 
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            message = msg.Text.ToString();
+            subject = sub.Text.ToString();
+            notify.recipients.Clear();
+            if((bool)(chkemployees.IsChecked))
+            {
+                notify.recipients.Add(notify.employee);
+            }
+            if ((bool)(chkparents.IsChecked))
+            {
+                notify.recipients.Add(notify.parent);
+            }
+            if ((bool)(chkteachers.IsChecked))
+            {
+                notify.recipients.Add(notify.teacher);
+            }
+            if(message!=null)
+            notify.UpdateAll(message,subject);
+            else
+            {
+                MessageBox.Show("Please Enter a Message");
+            }
         }
     }
 }

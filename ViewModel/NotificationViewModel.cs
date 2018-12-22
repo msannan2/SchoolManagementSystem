@@ -8,8 +8,8 @@ namespace DataBindingDemo
 {
     public class NotificationViewModel
     {
-        List<Recipients> recipients;
-        Recipients parent, employee, teacher;
+        public List<Recipients> recipients;
+        public Recipients parent, employee, teacher;
         public NotificationViewModel()
         {
             recipients = new List<Recipients>();

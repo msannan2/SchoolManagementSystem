@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DataBindingDemo
 {
@@ -27,23 +28,29 @@ namespace DataBindingDemo
         }
         public bool SendEmail(List<Teacher> ts,string message, string subject)
         {
-            
             MailMessage msg = new MailMessage();
-            if (ts == null)
+            try
             {
+                if (ts == null)
+                {
+                    return false;
+                }
+                foreach (var teacher in ts)
+                {
+                    if (teacher.Employee.EmailID != null)
+                    {
+                        msg.To.Add(teacher.Employee.EmailID);
+                    }
+                }
+                msg.From = addressFrom;
+                msg.Subject = subject;
+                msg.Body = message;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, e.HResult.ToString());
                 return false;
             }
-            foreach (var teacher in ts)
-            {
-                if (teacher.Employee.EmailID != null)
-                {
-                    msg.To.Add(teacher.Employee.EmailID);
-                }
-            }
-            msg.From = addressFrom;
-            msg.To.Add("msannan2@gmail.com");
-            msg.Subject = subject;
-            msg.Body = message;
             try
             {
                 SMTP.Send(msg);
@@ -51,7 +58,7 @@ namespace DataBindingDemo
             }
             catch (SmtpException e)
             {
-                Console.WriteLine("Error: {0}", e.StatusCode);
+                MessageBox.Show(e.Message, e.StatusCode.ToString());
                 return false;
             }
                
